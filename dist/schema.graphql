@@ -1,0 +1,1624 @@
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+"""whether this query should be cached (Hasura Cloud only)"""
+directive @cached(
+  """measured in seconds"""
+  ttl: Int! = 60
+
+  """refresh the cache entry"""
+  refresh: Boolean! = false
+) on QUERY
+
+"""
+Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'.
+"""
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+"""
+Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'.
+"""
+input Int_comparison_exp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+"""
+Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'.
+"""
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+
+  """does the column match the given case-insensitive pattern"""
+  _ilike: String
+  _in: [String!]
+
+  """
+  does the column match the given POSIX regular expression, case insensitive
+  """
+  _iregex: String
+  _is_null: Boolean
+
+  """does the column match the given pattern"""
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+
+  """does the column NOT match the given case-insensitive pattern"""
+  _nilike: String
+  _nin: [String!]
+
+  """
+  does the column NOT match the given POSIX regular expression, case insensitive
+  """
+  _niregex: String
+
+  """does the column NOT match the given pattern"""
+  _nlike: String
+
+  """
+  does the column NOT match the given POSIX regular expression, case sensitive
+  """
+  _nregex: String
+
+  """does the column NOT match the given SQL regular expression"""
+  _nsimilar: String
+
+  """
+  does the column match the given POSIX regular expression, case sensitive
+  """
+  _regex: String
+
+  """does the column match the given SQL regular expression"""
+  _similar: String
+}
+
+"""mutation root"""
+type mutation_root {
+  """
+  delete data from the table: "radiate.dipdup_state"
+  """
+  deleteRadiateDipdupState(
+    """filter the rows which have to be deleted"""
+    where: radiate_dipdup_state_bool_exp!
+  ): radiate_dipdup_state_mutation_response
+
+  """
+  delete single row from the table: "radiate.dipdup_state"
+  """
+  deleteRadiateDipdupStateByPk(indexName: String!): radiate_dipdup_state
+
+  """
+  delete data from the table: "radiate.history"
+  """
+  deleteRadiateHistory(
+    """filter the rows which have to be deleted"""
+    where: radiate_history_bool_exp!
+  ): radiate_history_mutation_response
+
+  """
+  delete single row from the table: "radiate.history"
+  """
+  deleteRadiateHistoryByPk(id: Int!): radiate_history
+
+  """
+  delete data from the table: "radiate.stream"
+  """
+  deleteRadiateStream(
+    """filter the rows which have to be deleted"""
+    where: radiate_stream_bool_exp!
+  ): radiate_stream_mutation_response
+
+  """
+  delete single row from the table: "radiate.stream"
+  """
+  deleteRadiateStreamByPk(id: Int!): radiate_stream
+
+  """
+  insert data into the table: "radiate.dipdup_state"
+  """
+  insertRadiateDipdupState(
+    """the rows to be inserted"""
+    objects: [radiate_dipdup_state_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: radiate_dipdup_state_on_conflict
+  ): radiate_dipdup_state_mutation_response
+
+  """
+  insert a single row into the table: "radiate.dipdup_state"
+  """
+  insertRadiateDipdupStateOne(
+    """the row to be inserted"""
+    object: radiate_dipdup_state_insert_input!
+
+    """on conflict condition"""
+    on_conflict: radiate_dipdup_state_on_conflict
+  ): radiate_dipdup_state
+
+  """
+  insert data into the table: "radiate.history"
+  """
+  insertRadiateHistory(
+    """the rows to be inserted"""
+    objects: [radiate_history_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: radiate_history_on_conflict
+  ): radiate_history_mutation_response
+
+  """
+  insert a single row into the table: "radiate.history"
+  """
+  insertRadiateHistoryOne(
+    """the row to be inserted"""
+    object: radiate_history_insert_input!
+
+    """on conflict condition"""
+    on_conflict: radiate_history_on_conflict
+  ): radiate_history
+
+  """
+  insert data into the table: "radiate.stream"
+  """
+  insertRadiateStream(
+    """the rows to be inserted"""
+    objects: [radiate_stream_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: radiate_stream_on_conflict
+  ): radiate_stream_mutation_response
+
+  """
+  insert a single row into the table: "radiate.stream"
+  """
+  insertRadiateStreamOne(
+    """the row to be inserted"""
+    object: radiate_stream_insert_input!
+
+    """on conflict condition"""
+    on_conflict: radiate_stream_on_conflict
+  ): radiate_stream
+
+  """
+  update data of the table: "radiate.dipdup_state"
+  """
+  updateRadiateDipdupState(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: radiate_dipdup_state_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: radiate_dipdup_state_set_input
+
+    """filter the rows which have to be updated"""
+    where: radiate_dipdup_state_bool_exp!
+  ): radiate_dipdup_state_mutation_response
+
+  """
+  update single row of the table: "radiate.dipdup_state"
+  """
+  updateRadiateDipdupStateByPk(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: radiate_dipdup_state_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: radiate_dipdup_state_set_input
+    pk_columns: radiate_dipdup_state_pk_columns_input!
+  ): radiate_dipdup_state
+
+  """
+  update data of the table: "radiate.history"
+  """
+  updateRadiateHistory(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: radiate_history_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: radiate_history_set_input
+
+    """filter the rows which have to be updated"""
+    where: radiate_history_bool_exp!
+  ): radiate_history_mutation_response
+
+  """
+  update single row of the table: "radiate.history"
+  """
+  updateRadiateHistoryByPk(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: radiate_history_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: radiate_history_set_input
+    pk_columns: radiate_history_pk_columns_input!
+  ): radiate_history
+
+  """
+  update data of the table: "radiate.stream"
+  """
+  updateRadiateStream(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: radiate_stream_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: radiate_stream_set_input
+
+    """filter the rows which have to be updated"""
+    where: radiate_stream_bool_exp!
+  ): radiate_stream_mutation_response
+
+  """
+  update single row of the table: "radiate.stream"
+  """
+  updateRadiateStreamByPk(
+    """increments the numeric columns with given value of the filtered values"""
+    _inc: radiate_stream_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: radiate_stream_set_input
+    pk_columns: radiate_stream_pk_columns_input!
+  ): radiate_stream
+}
+
+scalar numeric
+
+"""
+Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'.
+"""
+input numeric_comparison_exp {
+  _eq: numeric
+  _gt: numeric
+  _gte: numeric
+  _in: [numeric!]
+  _is_null: Boolean
+  _lt: numeric
+  _lte: numeric
+  _neq: numeric
+  _nin: [numeric!]
+}
+
+"""column ordering options"""
+enum order_by {
+  """in ascending order, nulls last"""
+  asc
+
+  """in ascending order, nulls first"""
+  asc_nulls_first
+
+  """in ascending order, nulls last"""
+  asc_nulls_last
+
+  """in descending order, nulls first"""
+  desc
+
+  """in descending order, nulls first"""
+  desc_nulls_first
+
+  """in descending order, nulls last"""
+  desc_nulls_last
+}
+
+type query_root {
+  """
+  fetch data from the table: "radiate.dipdup_state"
+  """
+  radiateDipdupState(
+    """distinct select on columns"""
+    distinct_on: [radiate_dipdup_state_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_dipdup_state_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_dipdup_state_bool_exp
+  ): [radiate_dipdup_state!]!
+
+  """
+  fetch aggregated fields from the table: "radiate.dipdup_state"
+  """
+  radiateDipdupStateAggregate(
+    """distinct select on columns"""
+    distinct_on: [radiate_dipdup_state_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_dipdup_state_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_dipdup_state_bool_exp
+  ): radiate_dipdup_state_aggregate!
+
+  """
+  fetch data from the table: "radiate.dipdup_state" using primary key columns
+  """
+  radiateDipdupStateByPk(indexName: String!): radiate_dipdup_state
+
+  """
+  fetch data from the table: "radiate.history"
+  """
+  radiateHistory(
+    """distinct select on columns"""
+    distinct_on: [radiate_history_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_history_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_history_bool_exp
+  ): [radiate_history!]!
+
+  """
+  fetch aggregated fields from the table: "radiate.history"
+  """
+  radiateHistoryAggregate(
+    """distinct select on columns"""
+    distinct_on: [radiate_history_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_history_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_history_bool_exp
+  ): radiate_history_aggregate!
+
+  """fetch data from the table: "radiate.history" using primary key columns"""
+  radiateHistoryByPk(id: Int!): radiate_history
+
+  """
+  fetch data from the table: "radiate.stream"
+  """
+  radiateStream(
+    """distinct select on columns"""
+    distinct_on: [radiate_stream_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_stream_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_stream_bool_exp
+  ): [radiate_stream!]!
+
+  """
+  fetch aggregated fields from the table: "radiate.stream"
+  """
+  radiateStreamAggregate(
+    """distinct select on columns"""
+    distinct_on: [radiate_stream_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_stream_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_stream_bool_exp
+  ): radiate_stream_aggregate!
+
+  """fetch data from the table: "radiate.stream" using primary key columns"""
+  radiateStreamByPk(id: Int!): radiate_stream
+}
+
+"""
+Stores current level of index and hash of it's config
+
+
+columns and relationships of "radiate.dipdup_state"
+
+"""
+type radiate_dipdup_state {
+  hash: String
+  indexHash: String!
+  indexName: String!
+
+  """operation: operation\nbig_map: big_map\nblock: block\nschema: schema"""
+  indexType: String!
+  level: Int!
+}
+
+"""
+aggregated selection of "radiate.dipdup_state"
+"""
+type radiate_dipdup_state_aggregate {
+  aggregate: radiate_dipdup_state_aggregate_fields
+  nodes: [radiate_dipdup_state!]!
+}
+
+"""
+aggregate fields of "radiate.dipdup_state"
+"""
+type radiate_dipdup_state_aggregate_fields {
+  avg: radiate_dipdup_state_avg_fields
+  count(columns: [radiate_dipdup_state_select_column!], distinct: Boolean): Int!
+  max: radiate_dipdup_state_max_fields
+  min: radiate_dipdup_state_min_fields
+  stddev: radiate_dipdup_state_stddev_fields
+  stddev_pop: radiate_dipdup_state_stddev_pop_fields
+  stddev_samp: radiate_dipdup_state_stddev_samp_fields
+  sum: radiate_dipdup_state_sum_fields
+  var_pop: radiate_dipdup_state_var_pop_fields
+  var_samp: radiate_dipdup_state_var_samp_fields
+  variance: radiate_dipdup_state_variance_fields
+}
+
+"""aggregate avg on columns"""
+type radiate_dipdup_state_avg_fields {
+  level: Float
+}
+
+"""
+Boolean expression to filter rows from the table "radiate.dipdup_state". All fields are combined with a logical 'AND'.
+"""
+input radiate_dipdup_state_bool_exp {
+  _and: [radiate_dipdup_state_bool_exp!]
+  _not: radiate_dipdup_state_bool_exp
+  _or: [radiate_dipdup_state_bool_exp!]
+  hash: String_comparison_exp
+  indexHash: String_comparison_exp
+  indexName: String_comparison_exp
+  indexType: String_comparison_exp
+  level: Int_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "radiate.dipdup_state"
+"""
+enum radiate_dipdup_state_constraint {
+  """unique or primary key constraint"""
+  dipdup_state_pkey
+}
+
+"""
+input type for incrementing numeric columns in table "radiate.dipdup_state"
+"""
+input radiate_dipdup_state_inc_input {
+  level: Int
+}
+
+"""
+input type for inserting data into table "radiate.dipdup_state"
+"""
+input radiate_dipdup_state_insert_input {
+  hash: String
+  indexHash: String
+  indexName: String
+
+  """operation: operation\nbig_map: big_map\nblock: block\nschema: schema"""
+  indexType: String
+  level: Int
+}
+
+"""aggregate max on columns"""
+type radiate_dipdup_state_max_fields {
+  hash: String
+  indexHash: String
+  indexName: String
+
+  """operation: operation\nbig_map: big_map\nblock: block\nschema: schema"""
+  indexType: String
+  level: Int
+}
+
+"""aggregate min on columns"""
+type radiate_dipdup_state_min_fields {
+  hash: String
+  indexHash: String
+  indexName: String
+
+  """operation: operation\nbig_map: big_map\nblock: block\nschema: schema"""
+  indexType: String
+  level: Int
+}
+
+"""
+response of any mutation on the table "radiate.dipdup_state"
+"""
+type radiate_dipdup_state_mutation_response {
+  """number of rows affected by the mutation"""
+  affected_rows: Int!
+
+  """data from the rows affected by the mutation"""
+  returning: [radiate_dipdup_state!]!
+}
+
+"""
+on conflict condition type for table "radiate.dipdup_state"
+"""
+input radiate_dipdup_state_on_conflict {
+  constraint: radiate_dipdup_state_constraint!
+  update_columns: [radiate_dipdup_state_update_column!]! = []
+  where: radiate_dipdup_state_bool_exp
+}
+
+"""Ordering options when selecting data from "radiate.dipdup_state"."""
+input radiate_dipdup_state_order_by {
+  hash: order_by
+  indexHash: order_by
+  indexName: order_by
+  indexType: order_by
+  level: order_by
+}
+
+"""primary key columns input for table: radiate_dipdup_state"""
+input radiate_dipdup_state_pk_columns_input {
+  indexName: String!
+}
+
+"""
+select columns of table "radiate.dipdup_state"
+"""
+enum radiate_dipdup_state_select_column {
+  """column name"""
+  hash
+
+  """column name"""
+  indexHash
+
+  """column name"""
+  indexName
+
+  """column name"""
+  indexType
+
+  """column name"""
+  level
+}
+
+"""
+input type for updating data in table "radiate.dipdup_state"
+"""
+input radiate_dipdup_state_set_input {
+  hash: String
+  indexHash: String
+  indexName: String
+
+  """operation: operation\nbig_map: big_map\nblock: block\nschema: schema"""
+  indexType: String
+  level: Int
+}
+
+"""aggregate stddev on columns"""
+type radiate_dipdup_state_stddev_fields {
+  level: Float
+}
+
+"""aggregate stddev_pop on columns"""
+type radiate_dipdup_state_stddev_pop_fields {
+  level: Float
+}
+
+"""aggregate stddev_samp on columns"""
+type radiate_dipdup_state_stddev_samp_fields {
+  level: Float
+}
+
+"""aggregate sum on columns"""
+type radiate_dipdup_state_sum_fields {
+  level: Int
+}
+
+"""
+update columns of table "radiate.dipdup_state"
+"""
+enum radiate_dipdup_state_update_column {
+  """column name"""
+  hash
+
+  """column name"""
+  indexHash
+
+  """column name"""
+  indexName
+
+  """column name"""
+  indexType
+
+  """column name"""
+  level
+}
+
+"""aggregate var_pop on columns"""
+type radiate_dipdup_state_var_pop_fields {
+  level: Float
+}
+
+"""aggregate var_samp on columns"""
+type radiate_dipdup_state_var_samp_fields {
+  level: Float
+}
+
+"""aggregate variance on columns"""
+type radiate_dipdup_state_variance_fields {
+  level: Float
+}
+
+"""
+columns and relationships of "radiate.history"
+"""
+type radiate_history {
+  amount: numeric!
+  id: Int!
+
+  """An object relationship"""
+  stream: radiate_stream!
+  streamId: Int!
+  timestamp: timestamptz!
+}
+
+"""
+aggregated selection of "radiate.history"
+"""
+type radiate_history_aggregate {
+  aggregate: radiate_history_aggregate_fields
+  nodes: [radiate_history!]!
+}
+
+"""
+aggregate fields of "radiate.history"
+"""
+type radiate_history_aggregate_fields {
+  avg: radiate_history_avg_fields
+  count(columns: [radiate_history_select_column!], distinct: Boolean): Int!
+  max: radiate_history_max_fields
+  min: radiate_history_min_fields
+  stddev: radiate_history_stddev_fields
+  stddev_pop: radiate_history_stddev_pop_fields
+  stddev_samp: radiate_history_stddev_samp_fields
+  sum: radiate_history_sum_fields
+  var_pop: radiate_history_var_pop_fields
+  var_samp: radiate_history_var_samp_fields
+  variance: radiate_history_variance_fields
+}
+
+"""
+order by aggregate values of table "radiate.history"
+"""
+input radiate_history_aggregate_order_by {
+  avg: radiate_history_avg_order_by
+  count: order_by
+  max: radiate_history_max_order_by
+  min: radiate_history_min_order_by
+  stddev: radiate_history_stddev_order_by
+  stddev_pop: radiate_history_stddev_pop_order_by
+  stddev_samp: radiate_history_stddev_samp_order_by
+  sum: radiate_history_sum_order_by
+  var_pop: radiate_history_var_pop_order_by
+  var_samp: radiate_history_var_samp_order_by
+  variance: radiate_history_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "radiate.history"
+"""
+input radiate_history_arr_rel_insert_input {
+  data: [radiate_history_insert_input!]!
+
+  """on conflict condition"""
+  on_conflict: radiate_history_on_conflict
+}
+
+"""aggregate avg on columns"""
+type radiate_history_avg_fields {
+  amount: Float
+  id: Float
+  streamId: Float
+}
+
+"""
+order by avg() on columns of table "radiate.history"
+"""
+input radiate_history_avg_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "radiate.history". All fields are combined with a logical 'AND'.
+"""
+input radiate_history_bool_exp {
+  _and: [radiate_history_bool_exp!]
+  _not: radiate_history_bool_exp
+  _or: [radiate_history_bool_exp!]
+  amount: numeric_comparison_exp
+  id: Int_comparison_exp
+  stream: radiate_stream_bool_exp
+  streamId: Int_comparison_exp
+  timestamp: timestamptz_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "radiate.history"
+"""
+enum radiate_history_constraint {
+  """unique or primary key constraint"""
+  history_pkey
+}
+
+"""
+input type for incrementing numeric columns in table "radiate.history"
+"""
+input radiate_history_inc_input {
+  amount: numeric
+  id: Int
+  streamId: Int
+}
+
+"""
+input type for inserting data into table "radiate.history"
+"""
+input radiate_history_insert_input {
+  amount: numeric
+  id: Int
+  stream: radiate_stream_obj_rel_insert_input
+  streamId: Int
+  timestamp: timestamptz
+}
+
+"""aggregate max on columns"""
+type radiate_history_max_fields {
+  amount: numeric
+  id: Int
+  streamId: Int
+  timestamp: timestamptz
+}
+
+"""
+order by max() on columns of table "radiate.history"
+"""
+input radiate_history_max_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+  timestamp: order_by
+}
+
+"""aggregate min on columns"""
+type radiate_history_min_fields {
+  amount: numeric
+  id: Int
+  streamId: Int
+  timestamp: timestamptz
+}
+
+"""
+order by min() on columns of table "radiate.history"
+"""
+input radiate_history_min_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+  timestamp: order_by
+}
+
+"""
+response of any mutation on the table "radiate.history"
+"""
+type radiate_history_mutation_response {
+  """number of rows affected by the mutation"""
+  affected_rows: Int!
+
+  """data from the rows affected by the mutation"""
+  returning: [radiate_history!]!
+}
+
+"""
+on conflict condition type for table "radiate.history"
+"""
+input radiate_history_on_conflict {
+  constraint: radiate_history_constraint!
+  update_columns: [radiate_history_update_column!]! = []
+  where: radiate_history_bool_exp
+}
+
+"""Ordering options when selecting data from "radiate.history"."""
+input radiate_history_order_by {
+  amount: order_by
+  id: order_by
+  stream: radiate_stream_order_by
+  streamId: order_by
+  timestamp: order_by
+}
+
+"""primary key columns input for table: radiate_history"""
+input radiate_history_pk_columns_input {
+  id: Int!
+}
+
+"""
+select columns of table "radiate.history"
+"""
+enum radiate_history_select_column {
+  """column name"""
+  amount
+
+  """column name"""
+  id
+
+  """column name"""
+  streamId
+
+  """column name"""
+  timestamp
+}
+
+"""
+input type for updating data in table "radiate.history"
+"""
+input radiate_history_set_input {
+  amount: numeric
+  id: Int
+  streamId: Int
+  timestamp: timestamptz
+}
+
+"""aggregate stddev on columns"""
+type radiate_history_stddev_fields {
+  amount: Float
+  id: Float
+  streamId: Float
+}
+
+"""
+order by stddev() on columns of table "radiate.history"
+"""
+input radiate_history_stddev_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type radiate_history_stddev_pop_fields {
+  amount: Float
+  id: Float
+  streamId: Float
+}
+
+"""
+order by stddev_pop() on columns of table "radiate.history"
+"""
+input radiate_history_stddev_pop_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type radiate_history_stddev_samp_fields {
+  amount: Float
+  id: Float
+  streamId: Float
+}
+
+"""
+order by stddev_samp() on columns of table "radiate.history"
+"""
+input radiate_history_stddev_samp_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+}
+
+"""aggregate sum on columns"""
+type radiate_history_sum_fields {
+  amount: numeric
+  id: Int
+  streamId: Int
+}
+
+"""
+order by sum() on columns of table "radiate.history"
+"""
+input radiate_history_sum_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+}
+
+"""
+update columns of table "radiate.history"
+"""
+enum radiate_history_update_column {
+  """column name"""
+  amount
+
+  """column name"""
+  id
+
+  """column name"""
+  streamId
+
+  """column name"""
+  timestamp
+}
+
+"""aggregate var_pop on columns"""
+type radiate_history_var_pop_fields {
+  amount: Float
+  id: Float
+  streamId: Float
+}
+
+"""
+order by var_pop() on columns of table "radiate.history"
+"""
+input radiate_history_var_pop_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+}
+
+"""aggregate var_samp on columns"""
+type radiate_history_var_samp_fields {
+  amount: Float
+  id: Float
+  streamId: Float
+}
+
+"""
+order by var_samp() on columns of table "radiate.history"
+"""
+input radiate_history_var_samp_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+}
+
+"""aggregate variance on columns"""
+type radiate_history_variance_fields {
+  amount: Float
+  id: Float
+  streamId: Float
+}
+
+"""
+order by variance() on columns of table "radiate.history"
+"""
+input radiate_history_variance_order_by {
+  amount: order_by
+  id: order_by
+  streamId: order_by
+}
+
+"""
+columns and relationships of "radiate.stream"
+"""
+type radiate_stream {
+  createdOn: timestamptz!
+  deposit: numeric!
+
+  """An array relationship"""
+  history(
+    """distinct select on columns"""
+    distinct_on: [radiate_history_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_history_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_history_bool_exp
+  ): [radiate_history!]!
+
+  """An aggregate relationship"""
+  history_aggregate(
+    """distinct select on columns"""
+    distinct_on: [radiate_history_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_history_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_history_bool_exp
+  ): radiate_history_aggregate!
+  id: Int!
+  isActive: Boolean!
+  ratePerSecond: numeric!
+  receiver: String!
+  remainingBalance: numeric!
+  sender: String!
+  startTime: timestamptz!
+  stopTime: timestamptz!
+  streamId: String!
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: smallint!
+}
+
+"""
+aggregated selection of "radiate.stream"
+"""
+type radiate_stream_aggregate {
+  aggregate: radiate_stream_aggregate_fields
+  nodes: [radiate_stream!]!
+}
+
+"""
+aggregate fields of "radiate.stream"
+"""
+type radiate_stream_aggregate_fields {
+  avg: radiate_stream_avg_fields
+  count(columns: [radiate_stream_select_column!], distinct: Boolean): Int!
+  max: radiate_stream_max_fields
+  min: radiate_stream_min_fields
+  stddev: radiate_stream_stddev_fields
+  stddev_pop: radiate_stream_stddev_pop_fields
+  stddev_samp: radiate_stream_stddev_samp_fields
+  sum: radiate_stream_sum_fields
+  var_pop: radiate_stream_var_pop_fields
+  var_samp: radiate_stream_var_samp_fields
+  variance: radiate_stream_variance_fields
+}
+
+"""aggregate avg on columns"""
+type radiate_stream_avg_fields {
+  deposit: Float
+  id: Float
+  ratePerSecond: Float
+  remainingBalance: Float
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: Float
+}
+
+"""
+Boolean expression to filter rows from the table "radiate.stream". All fields are combined with a logical 'AND'.
+"""
+input radiate_stream_bool_exp {
+  _and: [radiate_stream_bool_exp!]
+  _not: radiate_stream_bool_exp
+  _or: [radiate_stream_bool_exp!]
+  createdOn: timestamptz_comparison_exp
+  deposit: numeric_comparison_exp
+  history: radiate_history_bool_exp
+  id: Int_comparison_exp
+  isActive: Boolean_comparison_exp
+  ratePerSecond: numeric_comparison_exp
+  receiver: String_comparison_exp
+  remainingBalance: numeric_comparison_exp
+  sender: String_comparison_exp
+  startTime: timestamptz_comparison_exp
+  stopTime: timestamptz_comparison_exp
+  streamId: String_comparison_exp
+  token: smallint_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "radiate.stream"
+"""
+enum radiate_stream_constraint {
+  """unique or primary key constraint"""
+  stream_pkey
+}
+
+"""
+input type for incrementing numeric columns in table "radiate.stream"
+"""
+input radiate_stream_inc_input {
+  deposit: numeric
+  id: Int
+  ratePerSecond: numeric
+  remainingBalance: numeric
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: smallint
+}
+
+"""
+input type for inserting data into table "radiate.stream"
+"""
+input radiate_stream_insert_input {
+  createdOn: timestamptz
+  deposit: numeric
+  history: radiate_history_arr_rel_insert_input
+  id: Int
+  isActive: Boolean
+  ratePerSecond: numeric
+  receiver: String
+  remainingBalance: numeric
+  sender: String
+  startTime: timestamptz
+  stopTime: timestamptz
+  streamId: String
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: smallint
+}
+
+"""aggregate max on columns"""
+type radiate_stream_max_fields {
+  createdOn: timestamptz
+  deposit: numeric
+  id: Int
+  ratePerSecond: numeric
+  receiver: String
+  remainingBalance: numeric
+  sender: String
+  startTime: timestamptz
+  stopTime: timestamptz
+  streamId: String
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: smallint
+}
+
+"""aggregate min on columns"""
+type radiate_stream_min_fields {
+  createdOn: timestamptz
+  deposit: numeric
+  id: Int
+  ratePerSecond: numeric
+  receiver: String
+  remainingBalance: numeric
+  sender: String
+  startTime: timestamptz
+  stopTime: timestamptz
+  streamId: String
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: smallint
+}
+
+"""
+response of any mutation on the table "radiate.stream"
+"""
+type radiate_stream_mutation_response {
+  """number of rows affected by the mutation"""
+  affected_rows: Int!
+
+  """data from the rows affected by the mutation"""
+  returning: [radiate_stream!]!
+}
+
+"""
+input type for inserting object relation for remote table "radiate.stream"
+"""
+input radiate_stream_obj_rel_insert_input {
+  data: radiate_stream_insert_input!
+
+  """on conflict condition"""
+  on_conflict: radiate_stream_on_conflict
+}
+
+"""
+on conflict condition type for table "radiate.stream"
+"""
+input radiate_stream_on_conflict {
+  constraint: radiate_stream_constraint!
+  update_columns: [radiate_stream_update_column!]! = []
+  where: radiate_stream_bool_exp
+}
+
+"""Ordering options when selecting data from "radiate.stream"."""
+input radiate_stream_order_by {
+  createdOn: order_by
+  deposit: order_by
+  history_aggregate: radiate_history_aggregate_order_by
+  id: order_by
+  isActive: order_by
+  ratePerSecond: order_by
+  receiver: order_by
+  remainingBalance: order_by
+  sender: order_by
+  startTime: order_by
+  stopTime: order_by
+  streamId: order_by
+  token: order_by
+}
+
+"""primary key columns input for table: radiate_stream"""
+input radiate_stream_pk_columns_input {
+  id: Int!
+}
+
+"""
+select columns of table "radiate.stream"
+"""
+enum radiate_stream_select_column {
+  """column name"""
+  createdOn
+
+  """column name"""
+  deposit
+
+  """column name"""
+  id
+
+  """column name"""
+  isActive
+
+  """column name"""
+  ratePerSecond
+
+  """column name"""
+  receiver
+
+  """column name"""
+  remainingBalance
+
+  """column name"""
+  sender
+
+  """column name"""
+  startTime
+
+  """column name"""
+  stopTime
+
+  """column name"""
+  streamId
+
+  """column name"""
+  token
+}
+
+"""
+input type for updating data in table "radiate.stream"
+"""
+input radiate_stream_set_input {
+  createdOn: timestamptz
+  deposit: numeric
+  id: Int
+  isActive: Boolean
+  ratePerSecond: numeric
+  receiver: String
+  remainingBalance: numeric
+  sender: String
+  startTime: timestamptz
+  stopTime: timestamptz
+  streamId: String
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: smallint
+}
+
+"""aggregate stddev on columns"""
+type radiate_stream_stddev_fields {
+  deposit: Float
+  id: Float
+  ratePerSecond: Float
+  remainingBalance: Float
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: Float
+}
+
+"""aggregate stddev_pop on columns"""
+type radiate_stream_stddev_pop_fields {
+  deposit: Float
+  id: Float
+  ratePerSecond: Float
+  remainingBalance: Float
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: Float
+}
+
+"""aggregate stddev_samp on columns"""
+type radiate_stream_stddev_samp_fields {
+  deposit: Float
+  id: Float
+  ratePerSecond: Float
+  remainingBalance: Float
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: Float
+}
+
+"""aggregate sum on columns"""
+type radiate_stream_sum_fields {
+  deposit: numeric
+  id: Int
+  ratePerSecond: numeric
+  remainingBalance: numeric
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: smallint
+}
+
+"""
+update columns of table "radiate.stream"
+"""
+enum radiate_stream_update_column {
+  """column name"""
+  createdOn
+
+  """column name"""
+  deposit
+
+  """column name"""
+  id
+
+  """column name"""
+  isActive
+
+  """column name"""
+  ratePerSecond
+
+  """column name"""
+  receiver
+
+  """column name"""
+  remainingBalance
+
+  """column name"""
+  sender
+
+  """column name"""
+  startTime
+
+  """column name"""
+  stopTime
+
+  """column name"""
+  streamId
+
+  """column name"""
+  token
+}
+
+"""aggregate var_pop on columns"""
+type radiate_stream_var_pop_fields {
+  deposit: Float
+  id: Float
+  ratePerSecond: Float
+  remainingBalance: Float
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: Float
+}
+
+"""aggregate var_samp on columns"""
+type radiate_stream_var_samp_fields {
+  deposit: Float
+  id: Float
+  ratePerSecond: Float
+  remainingBalance: Float
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: Float
+}
+
+"""aggregate variance on columns"""
+type radiate_stream_variance_fields {
+  deposit: Float
+  id: Float
+  ratePerSecond: Float
+  remainingBalance: Float
+
+  """TEZ: 0\nFA12: 1\nFA2: 2"""
+  token: Float
+}
+
+scalar smallint
+
+"""
+Boolean expression to compare columns of type "smallint". All fields are combined with logical 'AND'.
+"""
+input smallint_comparison_exp {
+  _eq: smallint
+  _gt: smallint
+  _gte: smallint
+  _in: [smallint!]
+  _is_null: Boolean
+  _lt: smallint
+  _lte: smallint
+  _neq: smallint
+  _nin: [smallint!]
+}
+
+type subscription_root {
+  """
+  fetch data from the table: "radiate.dipdup_state"
+  """
+  radiateDipdupState(
+    """distinct select on columns"""
+    distinct_on: [radiate_dipdup_state_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_dipdup_state_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_dipdup_state_bool_exp
+  ): [radiate_dipdup_state!]!
+
+  """
+  fetch aggregated fields from the table: "radiate.dipdup_state"
+  """
+  radiateDipdupStateAggregate(
+    """distinct select on columns"""
+    distinct_on: [radiate_dipdup_state_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_dipdup_state_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_dipdup_state_bool_exp
+  ): radiate_dipdup_state_aggregate!
+
+  """
+  fetch data from the table: "radiate.dipdup_state" using primary key columns
+  """
+  radiateDipdupStateByPk(indexName: String!): radiate_dipdup_state
+
+  """
+  fetch data from the table: "radiate.history"
+  """
+  radiateHistory(
+    """distinct select on columns"""
+    distinct_on: [radiate_history_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_history_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_history_bool_exp
+  ): [radiate_history!]!
+
+  """
+  fetch aggregated fields from the table: "radiate.history"
+  """
+  radiateHistoryAggregate(
+    """distinct select on columns"""
+    distinct_on: [radiate_history_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_history_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_history_bool_exp
+  ): radiate_history_aggregate!
+
+  """fetch data from the table: "radiate.history" using primary key columns"""
+  radiateHistoryByPk(id: Int!): radiate_history
+
+  """
+  fetch data from the table: "radiate.stream"
+  """
+  radiateStream(
+    """distinct select on columns"""
+    distinct_on: [radiate_stream_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_stream_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_stream_bool_exp
+  ): [radiate_stream!]!
+
+  """
+  fetch aggregated fields from the table: "radiate.stream"
+  """
+  radiateStreamAggregate(
+    """distinct select on columns"""
+    distinct_on: [radiate_stream_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [radiate_stream_order_by!]
+
+    """filter the rows returned"""
+    where: radiate_stream_bool_exp
+  ): radiate_stream_aggregate!
+
+  """fetch data from the table: "radiate.stream" using primary key columns"""
+  radiateStreamByPk(id: Int!): radiate_stream
+}
+
+scalar timestamptz
+
+"""
+Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'.
+"""
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
