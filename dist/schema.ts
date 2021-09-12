@@ -6,7 +6,6 @@ export type Scalars = {
     Int: number,
     String: string,
     numeric: any,
-    smallint: any,
     timestamptz: any,
 }
 
@@ -377,6 +376,7 @@ export interface radiate_history_variance_fields {
 
 /** columns and relationships of "radiate.stream" */
 export interface radiate_stream {
+    contractAddress: Scalars['String']
     createdOn: Scalars['timestamptz']
     deposit: Scalars['numeric']
     /** An array relationship */
@@ -392,8 +392,8 @@ export interface radiate_stream {
     startTime: Scalars['timestamptz']
     stopTime: Scalars['timestamptz']
     streamId: Scalars['String']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
-    token: Scalars['smallint']
+    token: Scalars['Int']
+    tokenId: Scalars['Int']
     __typename: 'radiate_stream'
 }
 
@@ -429,8 +429,8 @@ export interface radiate_stream_avg_fields {
     id?: Scalars['Float']
     ratePerSecond?: Scalars['Float']
     remainingBalance?: Scalars['Float']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: Scalars['Float']
+    tokenId?: Scalars['Float']
     __typename: 'radiate_stream_avg_fields'
 }
 
@@ -441,6 +441,7 @@ export type radiate_stream_constraint = 'stream_pkey'
 
 /** aggregate max on columns */
 export interface radiate_stream_max_fields {
+    contractAddress?: Scalars['String']
     createdOn?: Scalars['timestamptz']
     deposit?: Scalars['numeric']
     id?: Scalars['Int']
@@ -451,14 +452,15 @@ export interface radiate_stream_max_fields {
     startTime?: Scalars['timestamptz']
     stopTime?: Scalars['timestamptz']
     streamId?: Scalars['String']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
-    token?: Scalars['smallint']
+    token?: Scalars['Int']
+    tokenId?: Scalars['Int']
     __typename: 'radiate_stream_max_fields'
 }
 
 
 /** aggregate min on columns */
 export interface radiate_stream_min_fields {
+    contractAddress?: Scalars['String']
     createdOn?: Scalars['timestamptz']
     deposit?: Scalars['numeric']
     id?: Scalars['Int']
@@ -469,8 +471,8 @@ export interface radiate_stream_min_fields {
     startTime?: Scalars['timestamptz']
     stopTime?: Scalars['timestamptz']
     streamId?: Scalars['String']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
-    token?: Scalars['smallint']
+    token?: Scalars['Int']
+    tokenId?: Scalars['Int']
     __typename: 'radiate_stream_min_fields'
 }
 
@@ -486,7 +488,7 @@ export interface radiate_stream_mutation_response {
 
 
 /** select columns of table "radiate.stream" */
-export type radiate_stream_select_column = 'createdOn' | 'deposit' | 'id' | 'isActive' | 'ratePerSecond' | 'receiver' | 'remainingBalance' | 'sender' | 'startTime' | 'stopTime' | 'streamId' | 'token'
+export type radiate_stream_select_column = 'contractAddress' | 'createdOn' | 'deposit' | 'id' | 'isActive' | 'ratePerSecond' | 'receiver' | 'remainingBalance' | 'sender' | 'startTime' | 'stopTime' | 'streamId' | 'token' | 'tokenId'
 
 
 /** aggregate stddev on columns */
@@ -495,8 +497,8 @@ export interface radiate_stream_stddev_fields {
     id?: Scalars['Float']
     ratePerSecond?: Scalars['Float']
     remainingBalance?: Scalars['Float']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: Scalars['Float']
+    tokenId?: Scalars['Float']
     __typename: 'radiate_stream_stddev_fields'
 }
 
@@ -507,8 +509,8 @@ export interface radiate_stream_stddev_pop_fields {
     id?: Scalars['Float']
     ratePerSecond?: Scalars['Float']
     remainingBalance?: Scalars['Float']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: Scalars['Float']
+    tokenId?: Scalars['Float']
     __typename: 'radiate_stream_stddev_pop_fields'
 }
 
@@ -519,8 +521,8 @@ export interface radiate_stream_stddev_samp_fields {
     id?: Scalars['Float']
     ratePerSecond?: Scalars['Float']
     remainingBalance?: Scalars['Float']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: Scalars['Float']
+    tokenId?: Scalars['Float']
     __typename: 'radiate_stream_stddev_samp_fields'
 }
 
@@ -531,14 +533,14 @@ export interface radiate_stream_sum_fields {
     id?: Scalars['Int']
     ratePerSecond?: Scalars['numeric']
     remainingBalance?: Scalars['numeric']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
-    token?: Scalars['smallint']
+    token?: Scalars['Int']
+    tokenId?: Scalars['Int']
     __typename: 'radiate_stream_sum_fields'
 }
 
 
 /** update columns of table "radiate.stream" */
-export type radiate_stream_update_column = 'createdOn' | 'deposit' | 'id' | 'isActive' | 'ratePerSecond' | 'receiver' | 'remainingBalance' | 'sender' | 'startTime' | 'stopTime' | 'streamId' | 'token'
+export type radiate_stream_update_column = 'contractAddress' | 'createdOn' | 'deposit' | 'id' | 'isActive' | 'ratePerSecond' | 'receiver' | 'remainingBalance' | 'sender' | 'startTime' | 'stopTime' | 'streamId' | 'token' | 'tokenId'
 
 
 /** aggregate var_pop on columns */
@@ -547,8 +549,8 @@ export interface radiate_stream_var_pop_fields {
     id?: Scalars['Float']
     ratePerSecond?: Scalars['Float']
     remainingBalance?: Scalars['Float']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: Scalars['Float']
+    tokenId?: Scalars['Float']
     __typename: 'radiate_stream_var_pop_fields'
 }
 
@@ -559,8 +561,8 @@ export interface radiate_stream_var_samp_fields {
     id?: Scalars['Float']
     ratePerSecond?: Scalars['Float']
     remainingBalance?: Scalars['Float']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: Scalars['Float']
+    tokenId?: Scalars['Float']
     __typename: 'radiate_stream_var_samp_fields'
 }
 
@@ -571,8 +573,8 @@ export interface radiate_stream_variance_fields {
     id?: Scalars['Float']
     ratePerSecond?: Scalars['Float']
     remainingBalance?: Scalars['Float']
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: Scalars['Float']
+    tokenId?: Scalars['Float']
     __typename: 'radiate_stream_variance_fields'
 }
 
@@ -1237,6 +1239,7 @@ export interface radiate_history_variance_order_by {amount?: (order_by | null),i
 
 /** columns and relationships of "radiate.stream" */
 export interface radiate_streamRequest{
+    contractAddress?: boolean | number
     createdOn?: boolean | number
     deposit?: boolean | number
     /** An array relationship */
@@ -1272,8 +1275,8 @@ export interface radiate_streamRequest{
     startTime?: boolean | number
     stopTime?: boolean | number
     streamId?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1312,31 +1315,28 @@ export interface radiate_stream_avg_fieldsRequest{
     id?: boolean | number
     ratePerSecond?: boolean | number
     remainingBalance?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
 
 
 /** Boolean expression to filter rows from the table "radiate.stream". All fields are combined with a logical 'AND'. */
-export interface radiate_stream_bool_exp {_and?: (radiate_stream_bool_exp[] | null),_not?: (radiate_stream_bool_exp | null),_or?: (radiate_stream_bool_exp[] | null),createdOn?: (timestamptz_comparison_exp | null),deposit?: (numeric_comparison_exp | null),history?: (radiate_history_bool_exp | null),id?: (Int_comparison_exp | null),isActive?: (Boolean_comparison_exp | null),ratePerSecond?: (numeric_comparison_exp | null),receiver?: (String_comparison_exp | null),remainingBalance?: (numeric_comparison_exp | null),sender?: (String_comparison_exp | null),startTime?: (timestamptz_comparison_exp | null),stopTime?: (timestamptz_comparison_exp | null),streamId?: (String_comparison_exp | null),token?: (smallint_comparison_exp | null)}
+export interface radiate_stream_bool_exp {_and?: (radiate_stream_bool_exp[] | null),_not?: (radiate_stream_bool_exp | null),_or?: (radiate_stream_bool_exp[] | null),contractAddress?: (String_comparison_exp | null),createdOn?: (timestamptz_comparison_exp | null),deposit?: (numeric_comparison_exp | null),history?: (radiate_history_bool_exp | null),id?: (Int_comparison_exp | null),isActive?: (Boolean_comparison_exp | null),ratePerSecond?: (numeric_comparison_exp | null),receiver?: (String_comparison_exp | null),remainingBalance?: (numeric_comparison_exp | null),sender?: (String_comparison_exp | null),startTime?: (timestamptz_comparison_exp | null),stopTime?: (timestamptz_comparison_exp | null),streamId?: (String_comparison_exp | null),token?: (Int_comparison_exp | null),tokenId?: (Int_comparison_exp | null)}
 
 
 /** input type for incrementing numeric columns in table "radiate.stream" */
-export interface radiate_stream_inc_input {deposit?: (Scalars['numeric'] | null),id?: (Scalars['Int'] | null),ratePerSecond?: (Scalars['numeric'] | null),remainingBalance?: (Scalars['numeric'] | null),
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token?: (Scalars['smallint'] | null)}
+export interface radiate_stream_inc_input {deposit?: (Scalars['numeric'] | null),id?: (Scalars['Int'] | null),ratePerSecond?: (Scalars['numeric'] | null),remainingBalance?: (Scalars['numeric'] | null),token?: (Scalars['Int'] | null),tokenId?: (Scalars['Int'] | null)}
 
 
 /** input type for inserting data into table "radiate.stream" */
-export interface radiate_stream_insert_input {createdOn?: (Scalars['timestamptz'] | null),deposit?: (Scalars['numeric'] | null),history?: (radiate_history_arr_rel_insert_input | null),id?: (Scalars['Int'] | null),isActive?: (Scalars['Boolean'] | null),ratePerSecond?: (Scalars['numeric'] | null),receiver?: (Scalars['String'] | null),remainingBalance?: (Scalars['numeric'] | null),sender?: (Scalars['String'] | null),startTime?: (Scalars['timestamptz'] | null),stopTime?: (Scalars['timestamptz'] | null),streamId?: (Scalars['String'] | null),
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token?: (Scalars['smallint'] | null)}
+export interface radiate_stream_insert_input {contractAddress?: (Scalars['String'] | null),createdOn?: (Scalars['timestamptz'] | null),deposit?: (Scalars['numeric'] | null),history?: (radiate_history_arr_rel_insert_input | null),id?: (Scalars['Int'] | null),isActive?: (Scalars['Boolean'] | null),ratePerSecond?: (Scalars['numeric'] | null),receiver?: (Scalars['String'] | null),remainingBalance?: (Scalars['numeric'] | null),sender?: (Scalars['String'] | null),startTime?: (Scalars['timestamptz'] | null),stopTime?: (Scalars['timestamptz'] | null),streamId?: (Scalars['String'] | null),token?: (Scalars['Int'] | null),tokenId?: (Scalars['Int'] | null)}
 
 
 /** aggregate max on columns */
 export interface radiate_stream_max_fieldsRequest{
+    contractAddress?: boolean | number
     createdOn?: boolean | number
     deposit?: boolean | number
     id?: boolean | number
@@ -1347,8 +1347,8 @@ export interface radiate_stream_max_fieldsRequest{
     startTime?: boolean | number
     stopTime?: boolean | number
     streamId?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1356,6 +1356,7 @@ export interface radiate_stream_max_fieldsRequest{
 
 /** aggregate min on columns */
 export interface radiate_stream_min_fieldsRequest{
+    contractAddress?: boolean | number
     createdOn?: boolean | number
     deposit?: boolean | number
     id?: boolean | number
@@ -1366,8 +1367,8 @@ export interface radiate_stream_min_fieldsRequest{
     startTime?: boolean | number
     stopTime?: boolean | number
     streamId?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1395,7 +1396,7 @@ export interface radiate_stream_on_conflict {constraint: radiate_stream_constrai
 
 
 /** Ordering options when selecting data from "radiate.stream". */
-export interface radiate_stream_order_by {createdOn?: (order_by | null),deposit?: (order_by | null),history_aggregate?: (radiate_history_aggregate_order_by | null),id?: (order_by | null),isActive?: (order_by | null),ratePerSecond?: (order_by | null),receiver?: (order_by | null),remainingBalance?: (order_by | null),sender?: (order_by | null),startTime?: (order_by | null),stopTime?: (order_by | null),streamId?: (order_by | null),token?: (order_by | null)}
+export interface radiate_stream_order_by {contractAddress?: (order_by | null),createdOn?: (order_by | null),deposit?: (order_by | null),history_aggregate?: (radiate_history_aggregate_order_by | null),id?: (order_by | null),isActive?: (order_by | null),ratePerSecond?: (order_by | null),receiver?: (order_by | null),remainingBalance?: (order_by | null),sender?: (order_by | null),startTime?: (order_by | null),stopTime?: (order_by | null),streamId?: (order_by | null),token?: (order_by | null),tokenId?: (order_by | null)}
 
 
 /** primary key columns input for table: radiate_stream */
@@ -1403,9 +1404,7 @@ export interface radiate_stream_pk_columns_input {id: Scalars['Int']}
 
 
 /** input type for updating data in table "radiate.stream" */
-export interface radiate_stream_set_input {createdOn?: (Scalars['timestamptz'] | null),deposit?: (Scalars['numeric'] | null),id?: (Scalars['Int'] | null),isActive?: (Scalars['Boolean'] | null),ratePerSecond?: (Scalars['numeric'] | null),receiver?: (Scalars['String'] | null),remainingBalance?: (Scalars['numeric'] | null),sender?: (Scalars['String'] | null),startTime?: (Scalars['timestamptz'] | null),stopTime?: (Scalars['timestamptz'] | null),streamId?: (Scalars['String'] | null),
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token?: (Scalars['smallint'] | null)}
+export interface radiate_stream_set_input {contractAddress?: (Scalars['String'] | null),createdOn?: (Scalars['timestamptz'] | null),deposit?: (Scalars['numeric'] | null),id?: (Scalars['Int'] | null),isActive?: (Scalars['Boolean'] | null),ratePerSecond?: (Scalars['numeric'] | null),receiver?: (Scalars['String'] | null),remainingBalance?: (Scalars['numeric'] | null),sender?: (Scalars['String'] | null),startTime?: (Scalars['timestamptz'] | null),stopTime?: (Scalars['timestamptz'] | null),streamId?: (Scalars['String'] | null),token?: (Scalars['Int'] | null),tokenId?: (Scalars['Int'] | null)}
 
 
 /** aggregate stddev on columns */
@@ -1414,8 +1413,8 @@ export interface radiate_stream_stddev_fieldsRequest{
     id?: boolean | number
     ratePerSecond?: boolean | number
     remainingBalance?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1427,8 +1426,8 @@ export interface radiate_stream_stddev_pop_fieldsRequest{
     id?: boolean | number
     ratePerSecond?: boolean | number
     remainingBalance?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1440,8 +1439,8 @@ export interface radiate_stream_stddev_samp_fieldsRequest{
     id?: boolean | number
     ratePerSecond?: boolean | number
     remainingBalance?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1453,8 +1452,8 @@ export interface radiate_stream_sum_fieldsRequest{
     id?: boolean | number
     ratePerSecond?: boolean | number
     remainingBalance?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1466,8 +1465,8 @@ export interface radiate_stream_var_pop_fieldsRequest{
     id?: boolean | number
     ratePerSecond?: boolean | number
     remainingBalance?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1479,8 +1478,8 @@ export interface radiate_stream_var_samp_fieldsRequest{
     id?: boolean | number
     ratePerSecond?: boolean | number
     remainingBalance?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
@@ -1492,15 +1491,11 @@ export interface radiate_stream_variance_fieldsRequest{
     id?: boolean | number
     ratePerSecond?: boolean | number
     remainingBalance?: boolean | number
-    /** TEZ: 0\nFA12: 1\nFA2: 2 */
     token?: boolean | number
+    tokenId?: boolean | number
     __typename?: boolean | number
     __scalar?: boolean | number
 }
-
-
-/** Boolean expression to compare columns of type "smallint". All fields are combined with logical 'AND'. */
-export interface smallint_comparison_exp {_eq?: (Scalars['smallint'] | null),_gt?: (Scalars['smallint'] | null),_gte?: (Scalars['smallint'] | null),_in?: (Scalars['smallint'][] | null),_is_null?: (Scalars['Boolean'] | null),_lt?: (Scalars['smallint'] | null),_lte?: (Scalars['smallint'] | null),_neq?: (Scalars['smallint'] | null),_nin?: (Scalars['smallint'][] | null)}
 
 export interface subscription_rootRequest{
     /** fetch data from the table: "radiate.dipdup_state" */
@@ -2878,6 +2873,7 @@ export interface radiate_history_variance_fieldsObservableChain{
 
 /** columns and relationships of "radiate.stream" */
 export interface radiate_streamPromiseChain{
+    contractAddress: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
     createdOn: ({get: (request?: boolean|number, defaultValue?: Scalars['timestamptz']) => Promise<Scalars['timestamptz']>}),
     deposit: ({get: (request?: boolean|number, defaultValue?: Scalars['numeric']) => Promise<Scalars['numeric']>}),
     
@@ -2915,14 +2911,14 @@ where?: (radiate_history_bool_exp | null)}) => radiate_history_aggregatePromiseC
     startTime: ({get: (request?: boolean|number, defaultValue?: Scalars['timestamptz']) => Promise<Scalars['timestamptz']>}),
     stopTime: ({get: (request?: boolean|number, defaultValue?: Scalars['timestamptz']) => Promise<Scalars['timestamptz']>}),
     streamId: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Promise<Scalars['String']>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: Scalars['smallint']) => Promise<Scalars['smallint']>})
+    token: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Promise<Scalars['Int']>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Promise<Scalars['Int']>})
 }
 
 
 /** columns and relationships of "radiate.stream" */
 export interface radiate_streamObservableChain{
+    contractAddress: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
     createdOn: ({get: (request?: boolean|number, defaultValue?: Scalars['timestamptz']) => Observable<Scalars['timestamptz']>}),
     deposit: ({get: (request?: boolean|number, defaultValue?: Scalars['numeric']) => Observable<Scalars['numeric']>}),
     
@@ -2960,9 +2956,8 @@ where?: (radiate_history_bool_exp | null)}) => radiate_history_aggregateObservab
     startTime: ({get: (request?: boolean|number, defaultValue?: Scalars['timestamptz']) => Observable<Scalars['timestamptz']>}),
     stopTime: ({get: (request?: boolean|number, defaultValue?: Scalars['timestamptz']) => Observable<Scalars['timestamptz']>}),
     streamId: ({get: (request?: boolean|number, defaultValue?: Scalars['String']) => Observable<Scalars['String']>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: Scalars['smallint']) => Observable<Scalars['smallint']>})
+    token: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Observable<Scalars['Int']>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: Scalars['Int']) => Observable<Scalars['Int']>})
 }
 
 
@@ -3018,9 +3013,8 @@ export interface radiate_stream_avg_fieldsPromiseChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3030,14 +3024,14 @@ export interface radiate_stream_avg_fieldsObservableChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
 }
 
 
 /** aggregate max on columns */
 export interface radiate_stream_max_fieldsPromiseChain{
+    contractAddress: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     createdOn: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Promise<(Scalars['timestamptz'] | undefined)>}),
     deposit: ({get: (request?: boolean|number, defaultValue?: (Scalars['numeric'] | undefined)) => Promise<(Scalars['numeric'] | undefined)>}),
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
@@ -3048,14 +3042,14 @@ export interface radiate_stream_max_fieldsPromiseChain{
     startTime: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Promise<(Scalars['timestamptz'] | undefined)>}),
     stopTime: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Promise<(Scalars['timestamptz'] | undefined)>}),
     streamId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['smallint'] | undefined)) => Promise<(Scalars['smallint'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>})
 }
 
 
 /** aggregate max on columns */
 export interface radiate_stream_max_fieldsObservableChain{
+    contractAddress: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     createdOn: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Observable<(Scalars['timestamptz'] | undefined)>}),
     deposit: ({get: (request?: boolean|number, defaultValue?: (Scalars['numeric'] | undefined)) => Observable<(Scalars['numeric'] | undefined)>}),
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
@@ -3066,14 +3060,14 @@ export interface radiate_stream_max_fieldsObservableChain{
     startTime: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Observable<(Scalars['timestamptz'] | undefined)>}),
     stopTime: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Observable<(Scalars['timestamptz'] | undefined)>}),
     streamId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['smallint'] | undefined)) => Observable<(Scalars['smallint'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>})
 }
 
 
 /** aggregate min on columns */
 export interface radiate_stream_min_fieldsPromiseChain{
+    contractAddress: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
     createdOn: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Promise<(Scalars['timestamptz'] | undefined)>}),
     deposit: ({get: (request?: boolean|number, defaultValue?: (Scalars['numeric'] | undefined)) => Promise<(Scalars['numeric'] | undefined)>}),
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
@@ -3084,14 +3078,14 @@ export interface radiate_stream_min_fieldsPromiseChain{
     startTime: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Promise<(Scalars['timestamptz'] | undefined)>}),
     stopTime: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Promise<(Scalars['timestamptz'] | undefined)>}),
     streamId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Promise<(Scalars['String'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['smallint'] | undefined)) => Promise<(Scalars['smallint'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>})
 }
 
 
 /** aggregate min on columns */
 export interface radiate_stream_min_fieldsObservableChain{
+    contractAddress: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
     createdOn: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Observable<(Scalars['timestamptz'] | undefined)>}),
     deposit: ({get: (request?: boolean|number, defaultValue?: (Scalars['numeric'] | undefined)) => Observable<(Scalars['numeric'] | undefined)>}),
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
@@ -3102,9 +3096,8 @@ export interface radiate_stream_min_fieldsObservableChain{
     startTime: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Observable<(Scalars['timestamptz'] | undefined)>}),
     stopTime: ({get: (request?: boolean|number, defaultValue?: (Scalars['timestamptz'] | undefined)) => Observable<(Scalars['timestamptz'] | undefined)>}),
     streamId: ({get: (request?: boolean|number, defaultValue?: (Scalars['String'] | undefined)) => Observable<(Scalars['String'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['smallint'] | undefined)) => Observable<(Scalars['smallint'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>})
 }
 
 
@@ -3136,9 +3129,8 @@ export interface radiate_stream_stddev_fieldsPromiseChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3148,9 +3140,8 @@ export interface radiate_stream_stddev_fieldsObservableChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3160,9 +3151,8 @@ export interface radiate_stream_stddev_pop_fieldsPromiseChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3172,9 +3162,8 @@ export interface radiate_stream_stddev_pop_fieldsObservableChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3184,9 +3173,8 @@ export interface radiate_stream_stddev_samp_fieldsPromiseChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3196,9 +3184,8 @@ export interface radiate_stream_stddev_samp_fieldsObservableChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3208,9 +3195,8 @@ export interface radiate_stream_sum_fieldsPromiseChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['numeric'] | undefined)) => Promise<(Scalars['numeric'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['numeric'] | undefined)) => Promise<(Scalars['numeric'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['smallint'] | undefined)) => Promise<(Scalars['smallint'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Promise<(Scalars['Int'] | undefined)>})
 }
 
 
@@ -3220,9 +3206,8 @@ export interface radiate_stream_sum_fieldsObservableChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['numeric'] | undefined)) => Observable<(Scalars['numeric'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['numeric'] | undefined)) => Observable<(Scalars['numeric'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['smallint'] | undefined)) => Observable<(Scalars['smallint'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Int'] | undefined)) => Observable<(Scalars['Int'] | undefined)>})
 }
 
 
@@ -3232,9 +3217,8 @@ export interface radiate_stream_var_pop_fieldsPromiseChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3244,9 +3228,8 @@ export interface radiate_stream_var_pop_fieldsObservableChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3256,9 +3239,8 @@ export interface radiate_stream_var_samp_fieldsPromiseChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3268,9 +3250,8 @@ export interface radiate_stream_var_samp_fieldsObservableChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3280,9 +3261,8 @@ export interface radiate_stream_variance_fieldsPromiseChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Promise<(Scalars['Float'] | undefined)>})
 }
 
 
@@ -3292,9 +3272,8 @@ export interface radiate_stream_variance_fieldsObservableChain{
     id: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     ratePerSecond: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
     remainingBalance: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
-    
-/** TEZ: 0\nFA12: 1\nFA2: 2 */
-token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
+    token: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>}),
+    tokenId: ({get: (request?: boolean|number, defaultValue?: (Scalars['Float'] | undefined)) => Observable<(Scalars['Float'] | undefined)>})
 }
 
 export interface subscription_rootPromiseChain{

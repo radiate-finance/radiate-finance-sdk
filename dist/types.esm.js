@@ -15,8 +15,7 @@ export default {
         75,
         85,
         91,
-        95,
-        97
+        95
     ],
     "types": {
         "Boolean": {},
@@ -512,7 +511,7 @@ export default {
                 3
             ],
             "timestamp": [
-                97
+                95
             ],
             "__typename": [
                 5
@@ -676,7 +675,7 @@ export default {
                 4
             ],
             "timestamp": [
-                98
+                96
             ],
             "__typename": [
                 5
@@ -711,7 +710,7 @@ export default {
                 3
             ],
             "timestamp": [
-                97
+                95
             ],
             "__typename": [
                 5
@@ -728,7 +727,7 @@ export default {
                 3
             ],
             "timestamp": [
-                97
+                95
             ],
             "__typename": [
                 5
@@ -762,7 +761,7 @@ export default {
                 3
             ],
             "timestamp": [
-                97
+                95
             ],
             "__typename": [
                 5
@@ -850,7 +849,7 @@ export default {
                 3
             ],
             "timestamp": [
-                97
+                95
             ],
             "__typename": [
                 5
@@ -1054,8 +1053,11 @@ export default {
             ]
         },
         "radiate_stream": {
+            "contractAddress": [
+                5
+            ],
             "createdOn": [
-                97
+                95
             ],
             "deposit": [
                 7
@@ -1123,16 +1125,19 @@ export default {
                 5
             ],
             "startTime": [
-                97
+                95
             ],
             "stopTime": [
-                97
+                95
             ],
             "streamId": [
                 5
             ],
             "token": [
-                95
+                3
+            ],
+            "tokenId": [
+                3
             ],
             "__typename": [
                 5
@@ -1212,6 +1217,9 @@ export default {
             "token": [
                 2
             ],
+            "tokenId": [
+                2
+            ],
             "__typename": [
                 5
             ]
@@ -1226,8 +1234,11 @@ export default {
             "_or": [
                 74
             ],
+            "contractAddress": [
+                6
+            ],
             "createdOn": [
-                98
+                96
             ],
             "deposit": [
                 8
@@ -1254,16 +1265,19 @@ export default {
                 6
             ],
             "startTime": [
-                98
+                96
             ],
             "stopTime": [
-                98
+                96
             ],
             "streamId": [
                 6
             ],
             "token": [
-                96
+                4
+            ],
+            "tokenId": [
+                4
             ],
             "__typename": [
                 5
@@ -1284,15 +1298,21 @@ export default {
                 7
             ],
             "token": [
-                95
+                3
+            ],
+            "tokenId": [
+                3
             ],
             "__typename": [
                 5
             ]
         },
         "radiate_stream_insert_input": {
+            "contractAddress": [
+                5
+            ],
             "createdOn": [
-                97
+                95
             ],
             "deposit": [
                 7
@@ -1319,24 +1339,30 @@ export default {
                 5
             ],
             "startTime": [
-                97
+                95
             ],
             "stopTime": [
-                97
+                95
             ],
             "streamId": [
                 5
             ],
             "token": [
-                95
+                3
+            ],
+            "tokenId": [
+                3
             ],
             "__typename": [
                 5
             ]
         },
         "radiate_stream_max_fields": {
+            "contractAddress": [
+                5
+            ],
             "createdOn": [
-                97
+                95
             ],
             "deposit": [
                 7
@@ -1357,24 +1383,30 @@ export default {
                 5
             ],
             "startTime": [
-                97
+                95
             ],
             "stopTime": [
-                97
+                95
             ],
             "streamId": [
                 5
             ],
             "token": [
-                95
+                3
+            ],
+            "tokenId": [
+                3
             ],
             "__typename": [
                 5
             ]
         },
         "radiate_stream_min_fields": {
+            "contractAddress": [
+                5
+            ],
             "createdOn": [
-                97
+                95
             ],
             "deposit": [
                 7
@@ -1395,16 +1427,19 @@ export default {
                 5
             ],
             "startTime": [
-                97
+                95
             ],
             "stopTime": [
-                97
+                95
             ],
             "streamId": [
                 5
             ],
             "token": [
-                95
+                3
+            ],
+            "tokenId": [
+                3
             ],
             "__typename": [
                 5
@@ -1447,6 +1482,9 @@ export default {
             ]
         },
         "radiate_stream_order_by": {
+            "contractAddress": [
+                9
+            ],
             "createdOn": [
                 9
             ],
@@ -1486,6 +1524,9 @@ export default {
             "token": [
                 9
             ],
+            "tokenId": [
+                9
+            ],
             "__typename": [
                 5
             ]
@@ -1500,8 +1541,11 @@ export default {
         },
         "radiate_stream_select_column": {},
         "radiate_stream_set_input": {
+            "contractAddress": [
+                5
+            ],
             "createdOn": [
-                97
+                95
             ],
             "deposit": [
                 7
@@ -1525,16 +1569,19 @@ export default {
                 5
             ],
             "startTime": [
-                97
+                95
             ],
             "stopTime": [
-                97
+                95
             ],
             "streamId": [
                 5
             ],
             "token": [
-                95
+                3
+            ],
+            "tokenId": [
+                3
             ],
             "__typename": [
                 5
@@ -1554,6 +1601,9 @@ export default {
                 2
             ],
             "token": [
+                2
+            ],
+            "tokenId": [
                 2
             ],
             "__typename": [
@@ -1576,6 +1626,9 @@ export default {
             "token": [
                 2
             ],
+            "tokenId": [
+                2
+            ],
             "__typename": [
                 5
             ]
@@ -1596,6 +1649,9 @@ export default {
             "token": [
                 2
             ],
+            "tokenId": [
+                2
+            ],
             "__typename": [
                 5
             ]
@@ -1614,7 +1670,10 @@ export default {
                 7
             ],
             "token": [
-                95
+                3
+            ],
+            "tokenId": [
+                3
             ],
             "__typename": [
                 5
@@ -1637,6 +1696,9 @@ export default {
             "token": [
                 2
             ],
+            "tokenId": [
+                2
+            ],
             "__typename": [
                 5
             ]
@@ -1655,6 +1717,9 @@ export default {
                 2
             ],
             "token": [
+                2
+            ],
+            "tokenId": [
                 2
             ],
             "__typename": [
@@ -1677,38 +1742,8 @@ export default {
             "token": [
                 2
             ],
-            "__typename": [
-                5
-            ]
-        },
-        "smallint": {},
-        "smallint_comparison_exp": {
-            "_eq": [
-                95
-            ],
-            "_gt": [
-                95
-            ],
-            "_gte": [
-                95
-            ],
-            "_in": [
-                95
-            ],
-            "_is_null": [
-                0
-            ],
-            "_lt": [
-                95
-            ],
-            "_lte": [
-                95
-            ],
-            "_neq": [
-                95
-            ],
-            "_nin": [
-                95
+            "tokenId": [
+                2
             ],
             "__typename": [
                 5
@@ -1717,31 +1752,31 @@ export default {
         "timestamptz": {},
         "timestamptz_comparison_exp": {
             "_eq": [
-                97
+                95
             ],
             "_gt": [
-                97
+                95
             ],
             "_gte": [
-                97
+                95
             ],
             "_in": [
-                97
+                95
             ],
             "_is_null": [
                 0
             ],
             "_lt": [
-                97
+                95
             ],
             "_lte": [
-                97
+                95
             ],
             "_neq": [
-                97
+                95
             ],
             "_nin": [
-                97
+                95
             ],
             "__typename": [
                 5

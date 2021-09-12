@@ -1039,6 +1039,7 @@ input radiate_history_variance_order_by {
 columns and relationships of "radiate.stream"
 """
 type radiate_stream {
+  contractAddress: String!
   createdOn: timestamptz!
   deposit: numeric!
 
@@ -1086,9 +1087,8 @@ type radiate_stream {
   startTime: timestamptz!
   stopTime: timestamptz!
   streamId: String!
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
-  token: smallint!
+  token: Int!
+  tokenId: Int!
 }
 
 """
@@ -1122,9 +1122,8 @@ type radiate_stream_avg_fields {
   id: Float
   ratePerSecond: Float
   remainingBalance: Float
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
   token: Float
+  tokenId: Float
 }
 
 """
@@ -1134,6 +1133,7 @@ input radiate_stream_bool_exp {
   _and: [radiate_stream_bool_exp!]
   _not: radiate_stream_bool_exp
   _or: [radiate_stream_bool_exp!]
+  contractAddress: String_comparison_exp
   createdOn: timestamptz_comparison_exp
   deposit: numeric_comparison_exp
   history: radiate_history_bool_exp
@@ -1146,7 +1146,8 @@ input radiate_stream_bool_exp {
   startTime: timestamptz_comparison_exp
   stopTime: timestamptz_comparison_exp
   streamId: String_comparison_exp
-  token: smallint_comparison_exp
+  token: Int_comparison_exp
+  tokenId: Int_comparison_exp
 }
 
 """
@@ -1165,15 +1166,15 @@ input radiate_stream_inc_input {
   id: Int
   ratePerSecond: numeric
   remainingBalance: numeric
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
-  token: smallint
+  token: Int
+  tokenId: Int
 }
 
 """
 input type for inserting data into table "radiate.stream"
 """
 input radiate_stream_insert_input {
+  contractAddress: String
   createdOn: timestamptz
   deposit: numeric
   history: radiate_history_arr_rel_insert_input
@@ -1186,13 +1187,13 @@ input radiate_stream_insert_input {
   startTime: timestamptz
   stopTime: timestamptz
   streamId: String
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
-  token: smallint
+  token: Int
+  tokenId: Int
 }
 
 """aggregate max on columns"""
 type radiate_stream_max_fields {
+  contractAddress: String
   createdOn: timestamptz
   deposit: numeric
   id: Int
@@ -1203,13 +1204,13 @@ type radiate_stream_max_fields {
   startTime: timestamptz
   stopTime: timestamptz
   streamId: String
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
-  token: smallint
+  token: Int
+  tokenId: Int
 }
 
 """aggregate min on columns"""
 type radiate_stream_min_fields {
+  contractAddress: String
   createdOn: timestamptz
   deposit: numeric
   id: Int
@@ -1220,9 +1221,8 @@ type radiate_stream_min_fields {
   startTime: timestamptz
   stopTime: timestamptz
   streamId: String
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
-  token: smallint
+  token: Int
+  tokenId: Int
 }
 
 """
@@ -1257,6 +1257,7 @@ input radiate_stream_on_conflict {
 
 """Ordering options when selecting data from "radiate.stream"."""
 input radiate_stream_order_by {
+  contractAddress: order_by
   createdOn: order_by
   deposit: order_by
   history_aggregate: radiate_history_aggregate_order_by
@@ -1270,6 +1271,7 @@ input radiate_stream_order_by {
   stopTime: order_by
   streamId: order_by
   token: order_by
+  tokenId: order_by
 }
 
 """primary key columns input for table: radiate_stream"""
@@ -1282,6 +1284,9 @@ select columns of table "radiate.stream"
 """
 enum radiate_stream_select_column {
   """column name"""
+  contractAddress
+
+  """column name"""
   createdOn
 
   """column name"""
@@ -1316,12 +1321,16 @@ enum radiate_stream_select_column {
 
   """column name"""
   token
+
+  """column name"""
+  tokenId
 }
 
 """
 input type for updating data in table "radiate.stream"
 """
 input radiate_stream_set_input {
+  contractAddress: String
   createdOn: timestamptz
   deposit: numeric
   id: Int
@@ -1333,9 +1342,8 @@ input radiate_stream_set_input {
   startTime: timestamptz
   stopTime: timestamptz
   streamId: String
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
-  token: smallint
+  token: Int
+  tokenId: Int
 }
 
 """aggregate stddev on columns"""
@@ -1344,9 +1352,8 @@ type radiate_stream_stddev_fields {
   id: Float
   ratePerSecond: Float
   remainingBalance: Float
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
   token: Float
+  tokenId: Float
 }
 
 """aggregate stddev_pop on columns"""
@@ -1355,9 +1362,8 @@ type radiate_stream_stddev_pop_fields {
   id: Float
   ratePerSecond: Float
   remainingBalance: Float
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
   token: Float
+  tokenId: Float
 }
 
 """aggregate stddev_samp on columns"""
@@ -1366,9 +1372,8 @@ type radiate_stream_stddev_samp_fields {
   id: Float
   ratePerSecond: Float
   remainingBalance: Float
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
   token: Float
+  tokenId: Float
 }
 
 """aggregate sum on columns"""
@@ -1377,15 +1382,17 @@ type radiate_stream_sum_fields {
   id: Int
   ratePerSecond: numeric
   remainingBalance: numeric
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
-  token: smallint
+  token: Int
+  tokenId: Int
 }
 
 """
 update columns of table "radiate.stream"
 """
 enum radiate_stream_update_column {
+  """column name"""
+  contractAddress
+
   """column name"""
   createdOn
 
@@ -1421,6 +1428,9 @@ enum radiate_stream_update_column {
 
   """column name"""
   token
+
+  """column name"""
+  tokenId
 }
 
 """aggregate var_pop on columns"""
@@ -1429,9 +1439,8 @@ type radiate_stream_var_pop_fields {
   id: Float
   ratePerSecond: Float
   remainingBalance: Float
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
   token: Float
+  tokenId: Float
 }
 
 """aggregate var_samp on columns"""
@@ -1440,9 +1449,8 @@ type radiate_stream_var_samp_fields {
   id: Float
   ratePerSecond: Float
   remainingBalance: Float
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
   token: Float
+  tokenId: Float
 }
 
 """aggregate variance on columns"""
@@ -1451,26 +1459,8 @@ type radiate_stream_variance_fields {
   id: Float
   ratePerSecond: Float
   remainingBalance: Float
-
-  """TEZ: 0\nFA12: 1\nFA2: 2"""
   token: Float
-}
-
-scalar smallint
-
-"""
-Boolean expression to compare columns of type "smallint". All fields are combined with logical 'AND'.
-"""
-input smallint_comparison_exp {
-  _eq: smallint
-  _gt: smallint
-  _gte: smallint
-  _in: [smallint!]
-  _is_null: Boolean
-  _lt: smallint
-  _lte: smallint
-  _neq: smallint
-  _nin: [smallint!]
+  tokenId: Float
 }
 
 type subscription_root {
